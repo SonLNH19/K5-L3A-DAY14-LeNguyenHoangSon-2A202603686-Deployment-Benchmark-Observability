@@ -1,0 +1,8 @@
+# Ghi đè riêng cho máy Windows có cổng 80 bị http.sys (PID 4) giữ.
+# Dùng cùng docker-compose.yml:
+#   docker compose -p k5-day14-docker -f docker-compose.yml -f docker-compose.port8081.yml up -d
+# Nginx lắng nghe ở http://localhost:8081 thay cho http://localhost (cổng 80).
+services:
+  nginx:
+    ports: !override
+      - "8081:80"
